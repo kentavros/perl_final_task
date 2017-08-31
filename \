@@ -13,26 +13,26 @@ sub new
 sub valName
 {
     my ($self, $name)=@_;
+    #print $name;
     #del tags
     $name =~s/<(?:[^>'"]*|(['"]).*?\1)*>//gs;
     #del spaces
     $name =~ s/^\s+|\s+$//g;
+    #print $name;
     my $errors='';
     if (length($name)<2)
     {
-        print 'eeeerrr';
         $errors .='Your name to short!';
     }
-
     if ($errors eq '')
     {
-           
-       return $name;
-     }
-     else
-     {
+        print 'eeee';
         return $errors;
-     }
+    }
+    else
+    {
+        return $name;
+    }
 }
 
 sub valEmail

@@ -1,4 +1,6 @@
-#!D:\Dwimperl\perl\bin\perl.exe
+#!/usr/bin/perl -w
+
+####!D:\Dwimperl\perl\bin\perl.exe
 
 use strict;
 use warnings;
@@ -12,7 +14,7 @@ my $q=CGI->new;
 print $q->header;
 
 # FORRR TEST ONLY!!!!!
-
+print 'test';
 my $dbh=Utils::Db->new();
 #my $query = "SELECT * FROM users";
 #print Dumper($dbh->select($query));
@@ -30,3 +32,5 @@ my $valid=Utils::Validate->new();
 #print $valid->valEmail(' SasSSSha671@yandex.ru ');
 
 #print $valid->valPass(' asd<br>ssdsdf<a>1234 ');
+
+#print $valid->valName('<br> Sasha ');
