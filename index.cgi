@@ -6,6 +6,7 @@ use Data::Dumper;
 use CGI;
 use CGI::Carp qw(fatalsToBrowser);
 use Utils::Db;
+use Utils::Validate;
 
 my $q=CGI->new;
 print $q->header;
@@ -22,5 +23,10 @@ my $dbh=Utils::Db->new();
 #my $queryIns = 'INSERT INTO user (name, email, pass) VALUES (\'kostia3\', \'kostia3@email.com\', \'password3456789\')';
 #$dbh->insert($queryIns);
 
-my $qeruDel = 'DELETE FROM users WHERE id=5';
-$dbh->delete($qeruDel);
+#my $qeruDel = 'DELETE FROM users WHERE id=5';
+#$dbh->delete($qeruDel);
+
+my $valid=Utils::Validate->new();
+#print $valid->valEmail(' SasSSSha671@yandex.ru ');
+
+#print $valid->valPass(' asd<br>ssdsdf<a>1234 ');

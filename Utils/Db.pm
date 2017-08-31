@@ -34,7 +34,7 @@ sub select
         }
     }
     else {
-        print $sth->errstr;
+        return $sth->errstr;
     }
     $sth->finish();
     $self->connectDb()->disconnect();
@@ -51,7 +51,7 @@ sub update
         return 1;
     }
     else {
-        print $sth->errstr;
+        return $sth->errstr;
     }
     $sth->finish();
     $self->connectDb()->disconnect();
@@ -67,7 +67,7 @@ sub insert
         return 1;
     }
     else {
-        print $sth->errstr;
+        return $sth->errstr;
     }
     $sth->finish();
     $self->connectDb()->disconnect();
@@ -83,9 +83,10 @@ sub delete
         return 1;
     }
     else {
-        print $sth->errstr;
+        return $sth->errstr;
     }
     $sth->finish();
     $self->connectDb()->disconnect();
 }
+#user6
 1;
