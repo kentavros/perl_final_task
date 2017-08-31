@@ -14,7 +14,7 @@ my $q=CGI->new;
 print $q->header;
 
 # FORRR TEST ONLY!!!!!
-print 'test';
+#print 'test';
 my $dbh=Utils::Db->new();
 #my $query = "SELECT * FROM users";
 #print Dumper($dbh->select($query));
@@ -29,8 +29,12 @@ my $dbh=Utils::Db->new();
 #$dbh->delete($qeruDel);
 
 my $valid=Utils::Validate->new();
-#print $valid->valEmail(' SasSSSha671@yandex.ru ');
+#if ($valid->valEmail(' SasSSSha671@yandex.ru '))
+#{print 'true____!'}
 
-#print $valid->valPass(' asd<br>ssdsdf<a>1234 ');
+#if ($valid->valPass(' asdssdsdf1234 '))
+#{print 'true!!!'}
 
-#print $valid->valName('<br> Sasha ');
+
+#if($valid->valName('<br> Sasha '))
+#{print 'True';}

@@ -17,22 +17,13 @@ sub valName
     $name =~s/<(?:[^>'"]*|(['"]).*?\1)*>//gs;
     #del spaces
     $name =~ s/^\s+|\s+$//g;
-    my $errors='';
+    #my $errors='';
     if (length($name)<2)
     {
-        print 'eeeerrr';
-        $errors .='Your name to short!';
+        #$errors .='Your name to short!';
+        return 0;
     }
-
-    if ($errors eq '')
-    {
-           
-       return $name;
-     }
-     else
-     {
-        return $errors;
-     }
+    return 1;
 }
 
 sub valEmail
@@ -44,48 +35,36 @@ sub valEmail
     #space delete
     $email =~ s/^\s+|\s+$//g;
     my $pattern = qr/^[a-z0-9_\.\-]+\@([a-z0-9\-]+\.)+[a-z]{2,4}$/;
-    my $errors = '';
+    #my $errors = '';
     if ($email !~ /$pattern/i){
-        $errors .= 'Invalid email address!<br>';
+        #$errors .= 'Invalid email address!<br>';
+        return 0;
     }
     if (length($email) > 50)
     {
-        $errors .='Length email over 50 characters!<br>';
+        #$errors .='Length email over 50 characters!<br>';
+        return 0;
     }
-    if ($errors eq '')
-    {
-        return $email;
-    }
-    else
-    {
-        return $errors;
-    }
+    return 1;
 }
 
 sub valPass
 {
     my ($self, $pass) = @_;
     my $errors = '';
-    #tag delete
-    $pass =~s/<(?:[^>'"]*|(['"]).*?\1)*>//gs;
     #space delete
     $pass =~ s/^\s+|\s+$//g;
     if ($pass !~ /^[a-z0-9_\-]{6,16}$/i)
     {
-        $errors .='Only letters and numbers are allowed in the password!<br>';
+        #$errors .='Only letters and numbers are allowed in the password!<br>';
+        return 0;
     }
     if (length($pass) > 16 || length($pass) < 6)
     {
-        $errors .='Password length must be greater than 6 or less than 16 characters<br>';
+        #$errors .='Password length must be greater than 6 or less than 16 characters<br>';
+        return 0;
     }
-    if ($errors eq '')
-    {
-        return $pass;
-    }
-    else
-    {
-       return $errors;
-    }
+    return 1;
 }
 #user6
 1;
